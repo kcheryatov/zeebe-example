@@ -1,0 +1,250 @@
+19:57:48,612 root INFO subscribed to topic 'order_before_action_events'
+19:57:48,612 root INFO TerminationProcessor: SIGTERM subscribed
+19:57:55,90 root INFO TerminationProcessor: __exit_gracefully__ called
+19:57:55,138 root INFO Finally messages committed and consumer closed
+19:59:20,860 root INFO subscribed to topic 'order_before_action_events'
+19:59:20,862 root INFO TerminationProcessor: SIGTERM subscribed
+19:59:57,475 root INFO TerminationProcessor: __exit_gracefully__ called
+20:01:16,326 root INFO subscribed to topic 'order_before_action_events'
+20:01:16,328 root INFO TerminationProcessor: SIGTERM subscribed
+20:01:22,803 root INFO TerminationProcessor: __exit_gracefully__ called
+20:01:22,926 root INFO Finally messages committed and consumer closed
+20:01:50,919 root INFO subscribed to topic 'order_before_action_events'
+20:01:50,925 root INFO TerminationProcessor: SIGTERM subscribed
+20:06:37,232 root INFO TerminationProcessor: __exit_gracefully__ called
+20:08:23,9 root INFO subscribed to topic 'order_before_action_events'
+20:08:23,10 root INFO TerminationProcessor: SIGTERM subscribed
+20:10:07,283 root INFO TerminationProcessor: __exit_gracefully__ called
+20:15:09,538 root INFO subscribed to topic 'order_before_action_events'
+20:15:09,541 root INFO TerminationProcessor: SIGTERM subscribed
+20:48:43,751 root INFO TerminationProcessor: __exit_gracefully__ called
+20:48:43,846 root INFO Finally messages committed and consumer closed
+21:32:15,255 root INFO subscribed to topic 'order_before_action_events'
+21:32:15,256 root INFO TerminationProcessor: SIGTERM subscribed
+21:32:49,439 root INFO TerminationProcessor: __exit_gracefully__ called
+21:32:49,490 root INFO Finally messages committed and consumer closed
+21:32:49,610 root INFO subscribed to topic 'order_before_action_events'
+21:32:49,610 root INFO TerminationProcessor: SIGTERM subscribed
+21:59:07,190 root INFO TerminationProcessor: __exit_gracefully__ called
+21:59:07,199 root INFO Finally messages committed and consumer closed
+21:59:56,442 root INFO subscribed to topic 'order_before_action_events'
+21:59:56,443 root INFO TerminationProcessor: SIGTERM subscribed
+21:59:56,543 root DEBUG No message received
+21:59:56,695 root DEBUG No message received
+21:59:56,845 root DEBUG No message received
+21:59:56,996 root DEBUG No message received
+21:59:57,148 root DEBUG No message received
+21:59:57,300 root DEBUG No message received
+21:59:57,451 root DEBUG No message received
+21:59:57,603 root DEBUG No message received
+21:59:57,754 root DEBUG No message received
+21:59:57,905 root DEBUG No message received
+21:59:58,56 root DEBUG No message received
+21:59:58,207 root DEBUG No message received
+21:59:58,358 root DEBUG No message received
+21:59:58,510 root DEBUG No message received
+21:59:58,662 root DEBUG No message received
+21:59:58,814 root DEBUG No message received
+21:59:58,965 root DEBUG No message received
+21:59:59,116 root DEBUG No message received
+21:59:59,268 root DEBUG No message received
+21:59:59,419 root DEBUG No message received
+21:59:59,570 root DEBUG No message received
+21:59:59,722 root DEBUG No message received
+21:59:59,873 root DEBUG No message received
+22:00:00,24 root DEBUG No message received
+22:00:00,176 root DEBUG No message received
+22:00:00,326 root DEBUG No message received
+22:00:00,478 root DEBUG No message received
+22:00:00,630 root DEBUG No message received
+22:00:00,781 root DEBUG No message received
+22:00:00,934 root DEBUG No message received
+22:00:01,89 root DEBUG No message received
+22:00:01,242 root DEBUG No message received
+22:00:01,393 root DEBUG No message received
+22:00:01,545 root DEBUG No message received
+22:00:01,696 root DEBUG No message received
+22:00:01,848 root DEBUG No message received
+22:00:01,999 root DEBUG No message received
+22:00:02,150 root DEBUG No message received
+22:00:02,301 root DEBUG No message received
+22:00:02,453 root DEBUG No message received
+22:00:02,604 root DEBUG No message received
+22:00:02,755 root DEBUG No message received
+22:00:02,907 root DEBUG No message received
+22:00:03,58 root DEBUG No message received
+22:00:03,215 root DEBUG No message received
+22:00:03,365 root DEBUG No message received
+22:00:03,516 root DEBUG No message received
+22:00:03,667 root DEBUG No message received
+22:00:03,818 root DEBUG No message received
+22:00:03,970 root DEBUG No message received
+22:00:04,122 root DEBUG No message received
+22:00:04,274 root DEBUG No message received
+22:00:04,425 root DEBUG No message received
+22:00:04,575 root DEBUG No message received
+22:00:04,727 root DEBUG No message received
+22:00:04,878 root DEBUG No message received
+22:00:05,30 root DEBUG No message received
+22:00:05,181 root DEBUG No message received
+22:00:05,332 root DEBUG No message received
+22:00:05,483 root DEBUG No message received
+22:00:05,635 root DEBUG No message received
+22:00:05,786 root DEBUG No message received
+22:00:05,938 root DEBUG No message received
+22:00:06,90 root DEBUG No message received
+22:00:06,241 root DEBUG No message received
+22:00:06,393 root DEBUG No message received
+22:00:06,544 root DEBUG No message received
+22:00:06,695 root DEBUG No message received
+22:00:06,847 root DEBUG No message received
+22:00:06,997 root DEBUG No message received
+22:00:07,149 root DEBUG No message received
+22:00:07,301 root DEBUG No message received
+22:00:07,453 root DEBUG No message received
+22:00:07,604 root DEBUG No message received
+22:00:07,755 root DEBUG No message received
+22:00:07,906 root DEBUG No message received
+22:00:08,57 root DEBUG No message received
+22:00:08,208 root DEBUG No message received
+22:00:08,360 root DEBUG No message received
+22:00:08,512 root DEBUG No message received
+22:00:08,663 root DEBUG No message received
+22:00:08,815 root DEBUG No message received
+22:00:08,966 root DEBUG No message received
+22:00:09,118 root DEBUG No message received
+22:00:09,269 root DEBUG No message received
+22:00:09,421 root DEBUG No message received
+22:00:09,572 root DEBUG No message received
+22:00:09,722 root DEBUG No message received
+22:00:09,874 root DEBUG No message received
+22:00:10,25 root DEBUG No message received
+22:00:10,176 root DEBUG No message received
+22:00:10,327 root DEBUG No message received
+22:00:10,478 root DEBUG No message received
+22:00:10,629 root DEBUG No message received
+22:00:10,780 root DEBUG No message received
+22:00:10,931 root DEBUG No message received
+22:00:11,83 root DEBUG No message received
+22:00:11,234 root DEBUG No message received
+22:00:11,386 root DEBUG No message received
+22:00:11,536 root DEBUG No message received
+22:00:11,687 root DEBUG No message received
+22:00:11,838 root DEBUG No message received
+22:00:11,990 root DEBUG No message received
+22:00:12,141 root DEBUG No message received
+22:00:12,292 root DEBUG No message received
+22:00:12,444 root DEBUG No message received
+22:00:12,595 root DEBUG No message received
+22:00:12,746 root DEBUG No message received
+22:00:12,897 root INFO TerminationProcessor: __exit_gracefully__ called
+22:00:12,897 root DEBUG No message received
+22:00:12,954 root INFO Finally messages committed and consumer closed
+22:00:36,271 root INFO subscribed to topic 'order_before_action_events'
+22:00:36,271 root INFO TerminationProcessor: SIGTERM subscribed
+22:01:38,506 root INFO TerminationProcessor: __exit_gracefully__ called
+22:01:38,560 root INFO Finally messages committed and consumer closed
+22:01:46,804 root INFO subscribed to topic 'order_before_action_events'
+22:01:46,804 root INFO TerminationProcessor: SIGTERM subscribed
+22:02:07,26 root ERROR Error while create send message to kafka 'int' object is not callable
+22:02:07,26 root ERROR Error while receive message: 'int' object is not callable
+22:02:49,721 root INFO TerminationProcessor: __exit_gracefully__ called
+22:02:49,775 root INFO Finally messages committed and consumer closed
+22:03:59,381 root INFO subscribed to topic 'order_before_action_events'
+22:03:59,381 root INFO TerminationProcessor: SIGTERM subscribed
+22:06:13,663 root INFO TerminationProcessor: __exit_gracefully__ called
+22:07:12,629 root INFO subscribed to topic 'order_before_action_events'
+22:07:12,629 root INFO TerminationProcessor: SIGTERM subscribed
+22:07:12,787 root ERROR Error while create send message to kafka 'int' object is not callable
+22:07:12,788 root ERROR Error while receive message: 'int' object is not callable
+22:07:12,847 root ERROR Error while create send message to kafka 'int' object is not callable
+22:07:12,847 root ERROR Error while receive message: 'int' object is not callable
+22:07:12,907 root ERROR Error while create send message to kafka 'int' object is not callable
+22:07:12,907 root ERROR Error while receive message: 'int' object is not callable
+22:07:12,965 root ERROR Error while create send message to kafka 'int' object is not callable
+22:07:12,965 root ERROR Error while receive message: 'int' object is not callable
+22:07:35,771 root INFO TerminationProcessor: __exit_gracefully__ called
+22:07:35,807 root INFO Finally messages committed and consumer closed
+22:09:00,74 root INFO subscribed to topic 'order_before_action_events'
+22:09:00,75 root INFO TerminationProcessor: SIGTERM subscribed
+22:09:03,342 root INFO TerminationProcessor: __exit_gracefully__ called
+22:09:03,396 root INFO Finally messages committed and consumer closed
+22:09:15,535 root INFO subscribed to topic 'order_before_action_events'
+22:09:15,536 root INFO TerminationProcessor: SIGTERM subscribed
+22:09:52,507 root INFO TerminationProcessor: __exit_gracefully__ called
+22:10:35,930 root INFO subscribed to topic 'order_before_action_events'
+22:10:35,930 root INFO TerminationProcessor: SIGTERM subscribed
+22:10:36,88 root ERROR Error while create send message to kafka 'int' object is not callable
+22:10:36,88 root ERROR Error while receive message: 'int' object is not callable
+22:10:36,146 root ERROR Error while create send message to kafka 'int' object is not callable
+22:10:36,146 root ERROR Error while receive message: 'int' object is not callable
+22:10:36,205 root ERROR Error while create send message to kafka 'int' object is not callable
+22:10:36,205 root ERROR Error while receive message: 'int' object is not callable
+22:10:36,263 root ERROR Error while create send message to kafka 'int' object is not callable
+22:10:36,263 root ERROR Error while receive message: 'int' object is not callable
+22:10:52,700 root INFO TerminationProcessor: __exit_gracefully__ called
+22:10:52,755 root INFO Finally messages committed and consumer closed
+22:12:04,617 root INFO subscribed to topic 'order_before_action_events'
+22:12:04,617 root INFO TerminationProcessor: SIGTERM subscribed
+22:12:04,775 root ERROR Error while create send message to kafka 'int' object is not callable
+22:12:04,776 root ERROR Error while receive message: 'int' object is not callable
+22:12:04,848 root ERROR Error while create send message to kafka 'int' object is not callable
+22:12:04,849 root ERROR Error while receive message: 'int' object is not callable
+22:12:04,907 root ERROR Error while create send message to kafka 'int' object is not callable
+22:12:04,907 root ERROR Error while receive message: 'int' object is not callable
+22:12:04,965 root ERROR Error while create send message to kafka 'int' object is not callable
+22:12:04,965 root ERROR Error while receive message: 'int' object is not callable
+22:12:51,272 root INFO TerminationProcessor: __exit_gracefully__ called
+22:12:51,319 root INFO Finally messages committed and consumer closed
+22:12:51,463 root INFO subscribed to topic 'order_before_action_events'
+22:12:51,463 root INFO TerminationProcessor: SIGTERM subscribed
+22:12:53,976 root INFO TerminationProcessor: __exit_gracefully__ called
+22:12:54,29 root INFO Finally messages committed and consumer closed
+22:12:58,607 root INFO subscribed to topic 'order_before_action_events'
+22:12:58,607 root INFO TerminationProcessor: SIGTERM subscribed
+22:12:58,765 root ERROR Error while receive message: 'int' object is not callable
+22:12:58,824 root ERROR Error while receive message: 'int' object is not callable
+22:12:58,884 root ERROR Error while receive message: 'int' object is not callable
+22:12:58,943 root ERROR Error while receive message: 'int' object is not callable
+22:14:15,107 root INFO TerminationProcessor: __exit_gracefully__ called
+22:14:15,161 root INFO Finally messages committed and consumer closed
+22:14:15,590 root INFO subscribed to topic 'order_before_action_events'
+22:14:15,590 root INFO TerminationProcessor: SIGTERM subscribed
+22:15:40,719 root INFO TerminationProcessor: __exit_gracefully__ called
+22:16:09,791 root INFO subscribed to topic 'order_before_action_events'
+22:16:09,791 root INFO TerminationProcessor: SIGTERM subscribed
+22:21:21,483 root INFO TerminationProcessor: __exit_gracefully__ called
+22:21:21,539 root INFO Finally messages committed and consumer closed
+22:21:34,374 root INFO subscribed to topic 'order_before_action_events'
+22:21:34,374 root INFO TerminationProcessor: SIGTERM subscribed
+22:21:34,533 root INFO Topic order_validated Message ready: {'orderId': 502}
+22:21:34,592 root INFO Topic order_validated Message ready: {'orderId': 503}
+22:21:34,651 root INFO Topic order_validated Message ready: {'orderId': 501}
+22:21:34,710 root INFO Topic order_validated Message ready: {'orderId': 501}
+22:29:26,985 root INFO TerminationProcessor: __exit_gracefully__ called
+22:29:27,40 root INFO Finally messages committed and consumer closed
+22:29:27,178 root INFO subscribed to topic 'order_before_action_events'
+22:29:27,178 root INFO TerminationProcessor: SIGTERM subscribed
+22:29:27,337 root INFO Topic order_validated Message ready: {'orderId': 502, 'messageName': 'order_validated'}
+22:29:27,396 root INFO Topic order_validated Message ready: {'orderId': 503, 'messageName': 'order_validated'}
+22:29:27,471 root INFO Topic order_validated Message ready: {'orderId': 501, 'messageName': 'order_validated'}
+22:29:27,531 root INFO Topic order_validated Message ready: {'orderId': 501, 'messageName': 'order_validated'}
+22:33:33,985 root INFO Topic order_validated Message ready: {'orderId': 505, 'messageName': 'order_validated'}
+22:53:31,419 root INFO Topic order_validated Message ready: {'orderId': 506, 'messageName': 'order_validated'}
+22:53:36,908 root INFO Topic order_validated Message ready: {'orderId': 506, 'messageName': 'order_validated'}
+22:59:46,765 root ERROR Error while receive message: Expecting value: line 1 column 1 (char 0)
+23:02:34,402 root INFO TerminationProcessor: __exit_gracefully__ called
+23:02:34,437 root INFO Finally messages committed and consumer closed
+23:03:04,856 root INFO subscribed to topic 'order_before_action_events'
+23:03:04,856 root INFO TerminationProcessor: SIGTERM subscribed
+23:03:04,864 root ERROR Error while receive message: Expecting value: line 1 column 1 (char 0)
+23:03:33,515 root INFO Topic order_validated Message ready: {'orderId': 507, 'messageName': 'order_validated'}
+23:05:38,479 root INFO TerminationProcessor: __exit_gracefully__ called
+23:05:38,539 root INFO Finally messages committed and consumer closed
+23:10:09,334 root INFO subscribed to topic 'order_before_action_events'
+23:10:09,334 root INFO TerminationProcessor: SIGTERM subscribed
+23:10:10,402 root INFO Topic order_validated Message ready: {'orderId': 507, 'messageName': 'order_validated'}
+12:36:57,573 root ERROR Error while receive message: Expecting value: line 1 column 1 (char 0)
+12:56:06,887 root ERROR Error while receive message: Expecting value: line 1 column 1 (char 0)
+13:15:06,838 root INFO TerminationProcessor: __exit_gracefully__ called
+13:15:06,904 root INFO Finally messages committed and consumer closed

@@ -1,0 +1,23 @@
+FROM python:3.9-slim
+# FROM bitnami/python:latest-prod
+
+# ENV VIRTUAL_ENV=/app/
+# RUN python3 -m venv $VIRTUAL_ENV
+# ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY /app/__init__.py /code/app/
+COPY /app/common/ /code/app/common/
+COPY /app/api/ /code/app/api/
+
+#RUN python -m pip install --upgrade pip
+
+RUN pip install -r /code/app/api/requirements.txt
+ 
+EXPOSE 5001
+
+ENV PYTHONPATH /code
+
+# CMD python /code/app/api/test.py
+# config settings: https://docs.gunicorn.org/en/stable/settings.html#config
+WORKDIR /code/app/api/
+CMD gunicorn -c gunicorn.conf create_order_api:app

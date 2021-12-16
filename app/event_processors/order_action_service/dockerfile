@@ -1,0 +1,21 @@
+FROM python:3.9-slim
+
+# ENV VIRTUAL_ENV=/app/
+# RUN python3 -m venv $VIRTUAL_ENV
+# ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY /app/__init__.py /code/app/
+COPY /app/common/ /code/app/common/
+COPY /app/event_processors/order_action_service/ /code/app/event_processors/order_action_service/
+
+#RUN python -m pip install --upgrade pip
+
+RUN pip install -r /code/app/event_processors/order_action_service/requirements.txt
+ 
+EXPOSE 5001
+
+ENV PYTHONPATH /code
+
+WORKDIR /code/app/event_processors/order_action_service/
+
+ENTRYPOINT ["python", "order_action_kafka_event_consumer_service.py"]

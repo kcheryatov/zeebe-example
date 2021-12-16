@@ -1,0 +1,85 @@
+21:01:17,352 root INFO subscribed to topic 'order_new_topic'
+21:01:17,353 root INFO TerminationProcessor: SIGTERM subscribed
+21:02:00,555 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "523d7231-d841-4de5-9a78-c69b8b4dd710", "status": "new", "version_date": "2021-12-11 18:02:00.520303"}'
+21:02:00,756 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "a1233335-e570-4053-8145-5015bb472650", "status": "new", "version_date": "2021-12-11 18:02:00.694809"}'
+21:02:00,880 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "0b8430d7-8099-4661-aa6b-1bb75d3f7140", "status": "new", "version_date": "2021-12-11 18:02:00.870858"}'
+21:02:01,82 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "a2baf7e1-2ab8-489b-bfad-66552103126a", "status": "new", "version_date": "2021-12-11 18:02:01.027405"}'
+21:02:01,188 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "25079960-34ef-40fa-82ea-04724596cedf", "status": "new", "version_date": "2021-12-11 18:02:01.177830"}'
+21:02:01,319 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "f0455d31-0c41-434c-8f2d-643240995951", "status": "new", "version_date": "2021-12-11 18:02:01.310989"}'
+21:02:01,521 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "e7c3b75d-be61-47c1-9c94-2e7a5c688b02", "status": "new", "version_date": "2021-12-11 18:02:01.461982"}'
+21:02:01,605 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "de2f594c-8447-43ec-89d3-7388ae2d0c02", "status": "new", "version_date": "2021-12-11 18:02:01.596636"}'
+21:02:01,753 root INFO b'{"client_id": "111", "payment": {"payment_type": "111", "transaction_id": "111"}, "items": [{"product_offering_id": "111", "local_id": 0, "status": "new"}], "id": "acdbf52c-9fbf-4ff6-956e-c31433ef1bb5", "status": "new", "version_date": "2021-12-11 18:02:01.744462"}'
+21:24:18,713 root INFO TerminationProcessor: __exit_gracefully__ called
+21:24:18,775 root INFO Finally messages committed and consumer closed
+21:24:22,960 root INFO subscribed to topic 'order_new_topic'
+21:24:22,960 root INFO TerminationProcessor: SIGTERM subscribed
+21:34:17,329 root INFO TerminationProcessor: __exit_gracefully__ called
+21:34:17,350 root INFO Finally messages committed and consumer closed
+22:59:00,572 root INFO subscribed to topic 'order_new_topic'
+22:59:00,573 root INFO TerminationProcessor: SIGTERM subscribed
+23:16:53,238 root INFO TerminationProcessor: __exit_gracefully__ called
+23:16:53,264 root INFO Finally messages committed and consumer closed
+23:16:53,930 root INFO subscribed to topic 'order_new_topic'
+23:16:53,930 root INFO TerminationProcessor: SIGTERM subscribed
+23:17:08,70 root INFO TerminationProcessor: __exit_gracefully__ called
+23:17:08,125 root INFO Finally messages committed and consumer closed
+23:17:30,284 root INFO subscribed to topic 'order_new_topic'
+23:17:30,285 root INFO TerminationProcessor: SIGTERM subscribed
+23:17:36,320 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+23:17:36,321 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+23:18:23,531 root INFO TerminationProcessor: __exit_gracefully__ called
+23:18:23,583 root INFO Finally messages committed and consumer closed
+23:32:40,477 root INFO subscribed to topic 'order_new_topic'
+23:32:40,478 root INFO TerminationProcessor: SIGTERM subscribed
+23:33:02,650 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+23:33:02,651 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+01:05:31,820 root INFO TerminationProcessor: __exit_gracefully__ called
+01:05:31,877 root INFO Finally messages committed and consumer closed
+12:27:35,990 root INFO subscribed to topic 'order_new_topic'
+12:27:35,990 root INFO TerminationProcessor: SIGTERM subscribed
+12:27:44,7 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+12:27:44,8 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+22:12:17,590 root INFO TerminationProcessor: __exit_gracefully__ called
+22:12:17,651 root INFO Finally messages committed and consumer closed
+22:29:16,233 root INFO subscribed to topic 'order_new_topic'
+22:29:16,234 root INFO TerminationProcessor: SIGTERM subscribed
+22:29:42,303 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+22:29:42,303 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+22:40:59,600 root INFO TerminationProcessor: __exit_gracefully__ called
+22:40:59,651 root INFO Finally messages committed and consumer closed
+22:41:22,454 root INFO subscribed to topic 'order_new_topic'
+22:41:22,454 root INFO TerminationProcessor: SIGTERM subscribed
+22:41:37,469 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+22:41:37,470 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+22:46:45,421 root INFO TerminationProcessor: __exit_gracefully__ called
+22:46:45,473 root INFO Finally messages committed and consumer closed
+22:51:53,655 root INFO subscribed to topic 'order_new_topic'
+22:51:53,655 root INFO TerminationProcessor: SIGTERM subscribed
+22:52:08,667 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+22:52:08,668 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+23:09:58,36 root INFO TerminationProcessor: __exit_gracefully__ called
+23:09:58,97 root INFO Finally messages committed and consumer closed
+13:03:54,228 root INFO subscribed to topic 'order_new_topic'
+13:03:54,229 root INFO TerminationProcessor: SIGTERM subscribed
+13:04:25,320 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+13:04:25,320 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+15:13:11,848 root INFO TerminationProcessor: __exit_gracefully__ called
+15:13:11,933 root INFO Finally messages committed and consumer closed
+15:13:42,378 root INFO subscribed to topic 'order_new_topic'
+15:13:42,379 root INFO TerminationProcessor: SIGTERM subscribed
+15:14:04,476 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+15:14:04,477 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+20:55:07,110 root INFO TerminationProcessor: __exit_gracefully__ called
+20:55:07,196 root INFO Finally messages committed and consumer closed
+21:25:06,711 root INFO subscribed to topic 'order_new_topic'
+21:25:06,712 root INFO TerminationProcessor: SIGTERM subscribed
+21:25:43,815 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+21:25:43,816 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+21:26:03,238 root INFO TerminationProcessor: __exit_gracefully__ called
+21:26:03,295 root INFO Finally messages committed and consumer closed
+22:59:29,100 root INFO subscribed to topic 'order_new_topic'
+22:59:29,104 root INFO TerminationProcessor: SIGTERM subscribed
+22:59:47,116 root INFO b'Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition'
+22:59:47,116 root ERROR Consumer error: KafkaError{code=UNKNOWN_TOPIC_OR_PART,val=3,str="Subscribed topic not available: order_new_topic: Broker: Unknown topic or partition"}
+12:23:09,540 root INFO TerminationProcessor: __exit_gracefully__ called
+12:23:09,596 root INFO Finally messages committed and consumer closed

@@ -1,0 +1,259 @@
+version: '3'
+
+networks:
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.1.1.0/24"
+
+services:
+
+#  create_order_api:
+#    build:
+#      context: .
+#      dockerfile: app/api/dockerfile
+#    container_name: create_order_api
+#    environment:
+#      LOGS_FILE: "./logs/create_order_api.log"
+#      KAFKA_URL: "kafka:9092"
+#      KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
+#      TZ: Europe/Moscow
+#    restart: on-failure
+#    volumes:
+#      - ./app/api/logs:/code/app/api/logs
+#    ports:
+#      - "5001:5001"
+#    networks:
+#      - app_net
+#    depends_on:
+#      - kafka
+#
+#  create_order_kafka_event_consumer_service:
+#    build:
+#      context: .
+#      dockerfile: app/event_processors/create_order_service/dockerfile
+#    container_name: create_order_kafka_event_consumer_service
+#    environment:
+#      LOGS_FILE: "./logs/create_order_kafka_event_consumer_service.log"
+#      KAFKA_URL: "kafka:9092"
+#      KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
+#      TZ: Europe/Moscow
+#    restart: on-failure
+#    volumes:
+#      - ./app/event_processors/create_order_service/logs:/code/app/event_processors/create_order_service/logs
+#    networks:
+#      - app_net
+#    depends_on:
+#      - kafka
+#
+#  test_pong_kafka_event_consumer_service:
+#    build:
+#      context: .
+#      dockerfile: app/event_processors/test_pong_service/dockerfile
+#    container_name: test_pong_kafka_event_consumer_service
+#    environment:
+#      LOGS_FILE: "./logs/test_pong_kafka_event_consumer_service.log"
+#      KAFKA_URL: "kafka:9092"
+#      TZ: Europe/Moscow
+#    restart: on-failure
+#    volumes:
+#      - ./app/event_processors/test_pong_service/logs:/code/app/event_processors/test_pong_service/logs
+#    networks:
+#      - app_net
+#    depends_on:
+#      - kafka
+
+  order_action_kafka_event_consumer_service:
+    build:
+      context: .
+      dockerfile: app/event_processors/order_action_service/dockerfile
+    container_name: order_action_kafka_event_consumer_service
+    environment:
+      LOGS_FILE: "./logs/order_action_kafka_event_consumer_service.log"
+      KAFKA_URL: "kafka:9092"
+      KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
+      TZ: Europe/Moscow
+      ORDER_ACTION_TOPICS_MAPPINGS: '{"validation":"order_validated","activation":"order_activated","completion":"order_completed","ext_validation":"order_ext_validated"}'
+      THREADS_COUNT: 4
+    restart: on-failure
+    volumes:
+      - ./app/event_processors/order_action_service/logs:/code/app/event_processors/order_action_service/logs
+    networks:
+      - app_net
+    depends_on:
+      - kafka
+
+  zookeeper:
+    container_name: common_zookeeper
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+      TZ: Europe/Moscow
+    restart: unless-stopped
+    networks:
+      - app_net
+
+  kafka: # https://github.com/bitnami/bitnami-docker-kafka #https://kafka.apache.org/documentation/#brokerconfigs_num.partitions
+    container_name: common_kafka
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '9093:9093'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_CFG_NUM_PARTITIONS=3
+      - TZ=Europe/Moscow
+    restart: unless-stopped
+    networks:
+      - app_net
+    depends_on:
+      - zookeeper
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    hostname: schema-registry
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    depends_on:
+      - zookeeper
+      - kafka
+    networks:
+      - app_net
+
+  connect:
+    image: confluentinc/cp-kafka-connect:7.0.0
+    hostname: connect
+    ports:
+      - "8083:8083"
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: "kafka:9092"
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: "connect-group"
+      CONNECT_CONFIG_STORAGE_TOPIC: "connect-configs"
+      CONNECT_OFFSET_STORAGE_TOPIC: "connect-offsets"
+      CONNECT_STATUS_STORAGE_TOPIC: "connect-status"
+      CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+      CONNECT_VALUE_CONVERTER:  "org.apache.kafka.connect.storage.StringConverter"
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "connect"
+      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR,io.zeebe.kafka.connect=TRACE,io.zeebe.client=WARN"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars'
+    volumes:
+      - ./app/data/connect/connectors:/etc/kafka-connect/jars/
+    depends_on:
+      - schema-registry
+      - kafka
+    networks:
+      - app_net
+
+  control-center:
+    image: confluentinc/cp-enterprise-control-center:latest
+    hostname: control-center
+    ports:
+      - "9021:9021"
+    environment:
+      CONTROL_CENTER_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: "kafka:9092"
+      CONTROL_CENTER_REPLICATION_FACTOR: 1
+      CONTROL_CENTER_CONNECT_CLUSTER: "connect:8083"
+      CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+    depends_on:
+      - zookeeper
+      - schema-registry
+      - kafka
+      - connect
+    networks:
+      - app_net
+
+  zeebe:
+    image: camunda/zeebe:${CAMUNDA_CLOUD_VERSION:-1.2.4}
+    container_name: zeebe
+    environment:
+      - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_CLASSNAME=io.camunda.zeebe.exporter.ElasticsearchExporter
+      - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_URL=http://elasticsearch:9200
+      - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_BULK_SIZE=1
+      - ZEEBE_BROKER_CLUSTER_PARTITIONS_COUNT=4
+    ports:
+      - 26500:26500
+    volumes:
+      - ./app/data/zeebe:/usr/local/zeebe/data
+    networks:
+      - app_net
+    depends_on:
+      - elasticsearch
+
+  operate:
+    image: camunda/operate:${CAMUNDA_CLOUD_VERSION:-1.2.4}
+    container_name: operate
+    environment:
+      - CAMUNDA_OPERATE_ZEEBE_GATEWAYADDRESS=zeebe:26500
+      - CAMUNDA_OPERATE_ELASTICSEARCH_URL=http://elasticsearch:9200
+      - CAMUNDA_OPERATE_ZEEBEELASTICSEARCH_URL=http://elasticsearch:9200
+    ports:
+      - "8080:8080"
+    networks:
+      - app_net
+    depends_on:
+      - elasticsearch
+
+#  tasklist:
+#    image: camunda/tasklist:${CAMUNDA_CLOUD_VERSION:-1.2.4}
+#    container_name: tasklist
+#    environment:
+#      - CAMUNDA_TASKLIST_ZEEBE_GATEWAYADDRESS=zeebe:26500
+#      - CAMUNDA_TASKLIST_ELASTICSEARCH_URL=http://elasticsearch:9200
+#      - CAMUNDA_TASKLIST_ZEEBEELASTICSEARCH_URL=http://elasticsearch:9200
+#    ports:
+#      - 8081:8080
+#    networks:
+#      - app_net
+#    depends_on:
+#      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.0
+    container_name: elasticsearch
+    environment:
+      - cluster.name=camunda-cloud
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - ./app/data/elastic:/usr/share/elasticsearch/data
+    networks:
+      - app_net
+
+  kibana: # https://www.elastic.co/guide/en/kibana/current/access.html
+    image: docker.elastic.co/kibana/kibana:7.16.0
+    environment:
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    ports:
+      - "5601:5601"
+    networks:
+      - app_net
+    depends_on:
+      - elasticsearch
