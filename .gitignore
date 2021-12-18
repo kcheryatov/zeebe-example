@@ -1,0 +1,11 @@
+# log files
+*.log
+# elastic volume
+/app/data/elastic/
+# zeebe volume
+/app/data/zeebe/
+# pycharm files
+/.idea
+
+
+
