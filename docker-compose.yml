@@ -75,7 +75,7 @@ services:
       KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
       TZ: Europe/Moscow
       ORDER_ACTION_TOPICS_MAPPINGS: '{"validation":"order_validated","activation":"order_activated","completion":"order_completed","ext_validation":"order_ext_validated"}'
-      THREADS_COUNT: 4
+      THREADS_COUNT: 1
     restart: on-failure
     volumes:
       - ./app/event_processors/order_action_service/logs:/code/app/event_processors/order_action_service/logs
@@ -194,7 +194,7 @@ services:
       - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_CLASSNAME=io.camunda.zeebe.exporter.ElasticsearchExporter
       - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_URL=http://elasticsearch:9200
       - ZEEBE_BROKER_EXPORTERS_ELASTICSEARCH_ARGS_BULK_SIZE=1
-      - ZEEBE_BROKER_CLUSTER_PARTITIONS_COUNT=4
+      - ZEEBE_BROKER_CLUSTER_PARTITIONS_COUNT=1
     ports:
       - 26500:26500
     volumes:
@@ -215,10 +215,16 @@ services:
       - "8080:8080"
     networks:
       - app_net
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://operate:8080/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     depends_on:
       - elasticsearch
 
-#  tasklist:
+
+  #  tasklist:
 #    image: camunda/tasklist:${CAMUNDA_CLOUD_VERSION:-1.2.4}
 #    container_name: tasklist
 #    environment:
@@ -244,6 +250,11 @@ services:
       - "9200:9200"
     volumes:
       - ./app/data/elastic:/usr/share/elasticsearch/data
+    healthcheck:
+      test: [ "CMD-SHELL", "curl s http://elasticsearch:9200/_cluster/health/" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - app_net
 
