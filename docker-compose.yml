@@ -9,26 +9,26 @@ networks:
 
 services:
 
-#  create_order_api:
-#    build:
-#      context: .
-#      dockerfile: app/api/dockerfile
-#    container_name: create_order_api
-#    environment:
-#      LOGS_FILE: "./logs/create_order_api.log"
-#      KAFKA_URL: "kafka:9092"
-#      KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
-#      TZ: Europe/Moscow
-#    restart: on-failure
-#    volumes:
-#      - ./app/api/logs:/code/app/api/logs
-#    ports:
-#      - "5001:5001"
-#    networks:
-#      - app_net
-#    depends_on:
-#      - kafka
-#
+  create-order-api:
+    build:
+      context: .
+      dockerfile: app/api/dockerfile
+    container_name: create-order-api
+    environment:
+      LOGS_FILE: "./logs/create_order_api.log"
+      KAFKA_URL: "kafka:9092"
+      KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
+      TZ: Europe/Moscow
+    restart: on-failure
+    volumes:
+      - ./app/api/logs:/code/app/api/logs
+    ports:
+      - "5001:5001"
+    networks:
+      - app_net
+    depends_on:
+      - kafka
+
 #  create_order_kafka_event_consumer_service:
 #    build:
 #      context: .
@@ -74,7 +74,7 @@ services:
       KAFKA_URL: "kafka:9092"
       KAFKA_ORDER_NEW_TOPIC: "order_new_topic"
       TZ: Europe/Moscow
-      ORDER_ACTION_TOPICS_MAPPINGS: '{"validation":"order_validated","activation":"order_activated","completion":"order_completed","ext_validation":"order_ext_validated"}'
+      ORDER_ACTION_TOPICS_MAPPINGS: '{"validation":"order_validated","activation":"order_activated","completion":"order_completed","ext_validation":"order_validated","calcellation":"order_cancelled"}'
       THREADS_COUNT: 1
     restart: on-failure
     volumes:
@@ -120,20 +120,20 @@ services:
     depends_on:
       - zookeeper
 
-  schema-registry:
-    image: confluentinc/cp-schema-registry:latest
-    hostname: schema-registry
-    ports:
-      - "8081:8081"
-    environment:
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-    depends_on:
-      - zookeeper
-      - kafka
-    networks:
-      - app_net
+#  schema-registry:
+#    image: confluentinc/cp-schema-registry:latest
+#    hostname: schema-registry
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
+#      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+#      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+#    depends_on:
+#      - zookeeper
+#      - kafka
+#    networks:
+#      - app_net
 
   connect:
     image: confluentinc/cp-kafka-connect:7.0.0
@@ -163,7 +163,7 @@ services:
     volumes:
       - ./app/data/connect/connectors:/etc/kafka-connect/jars/
     depends_on:
-      - schema-registry
+#      - schema-registry
       - kafka
     networks:
       - app_net
@@ -178,10 +178,10 @@ services:
       CONTROL_CENTER_BOOTSTRAP_SERVERS: "kafka:9092"
       CONTROL_CENTER_REPLICATION_FACTOR: 1
       CONTROL_CENTER_CONNECT_CLUSTER: "connect:8083"
-      CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+#      CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
     depends_on:
       - zookeeper
-      - schema-registry
+#      - schema-registry
       - kafka
       - connect
     networks:
@@ -238,6 +238,16 @@ services:
 #    depends_on:
 #      - elasticsearch
 
+  zeebe-http-worker:
+    container_name: zeebe-http-worker
+    image: ghcr.io/camunda-community-hub/zeebe-http-worker:1.0.0
+    environment:
+      - zeebe.client.broker.contactPoint=zeebe:26500
+    depends_on:
+      - zeebe
+    networks:
+      - app_net
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.0
     container_name: elasticsearch
@@ -250,13 +260,14 @@ services:
       - "9200:9200"
     volumes:
       - ./app/data/elastic:/usr/share/elasticsearch/data
-    healthcheck:
-      test: [ "CMD-SHELL", "curl s http://elasticsearch:9200/_cluster/health/" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
     networks:
       - app_net
+#    healthcheck:
+#      test: [ "CMD-SHELL", "curl s http://elasticsearch:9200/_cluster/health/" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
 
   kibana: # https://www.elastic.co/guide/en/kibana/current/access.html
     image: docker.elastic.co/kibana/kibana:7.16.0

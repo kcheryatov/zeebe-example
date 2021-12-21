@@ -7,7 +7,7 @@
     "key.converter.schemas.enable": false,
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": false,
-    "topics": "order_validated,order_ext_validated,order_activated,order_completed",
+    "topics": "order_validated,order_ext_validated,order_activated,order_completed,order_cancelled",
 
     "zeebe.client.gateway.address": "zeebe:26500",
     "zeebe.client.requestTimeout": "10000",

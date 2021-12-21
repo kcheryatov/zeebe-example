@@ -55,5 +55,19 @@ class Orders(Resource):
             return ex, 500
 
 
+@ns_order.route('/order/<int:id>/activities/validation-type/')
+class Orders(Resource):
+
+    def get(self, id):
+        """Get order validation type"""
+        if id % 3 == 0:
+            return {"errorCode": "invalidOrder"}, 500
+
+        if id % 2 == 0:
+            return "usual", 200
+        else:
+            return "extended", 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)

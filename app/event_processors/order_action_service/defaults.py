@@ -6,7 +6,8 @@ os.environ.setdefault('KAFKA_URL', '192.1.1.5:9093')
 os.environ.setdefault('ORDER_ACTION_TOPICS_MAPPINGS', '{"validation":"order_validated",'
                                                       '"activation":"order_activated,'
                                                       '"completion":"order_completed",'
-                                                      '"ext_validation":"order_ext_validated"}')
+                                                      '"ext_validation":"order_ext_validated",'
+                                                      '"calcellation":"order_cancelled"}')
 os.environ.setdefault('THREADS_COUNT', '4')
 
 logging.basicConfig(
