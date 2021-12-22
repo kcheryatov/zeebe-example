@@ -19,7 +19,7 @@
 
     "message.path.messageName": "$.messageName",
     "message.path.correlationKey": "$.orderId",
-    "message.path.variables": "$.['orderId', 'orderId']",
+    "message.path.variables": "$.['orderId', 'result']",
     "--message.path.timeToLive": "$.variablesAsMap.ttl"
   }
 }

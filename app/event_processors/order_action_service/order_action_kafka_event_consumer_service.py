@@ -7,6 +7,9 @@ import defaults
 from app.common.Kafka_consumer_service.kafka_consumer_service import KafkaConsumerService
 from app.common.kafka_producer.kafka_producer import KafkaProducer
 
+from app.common.Kafka_consumer_service.termination_processor import TerminationProcessor
+
+
 kafka_servers = os.getenv("KAFKA_URL")
 topic_name = "order_before_action_events"
 
@@ -40,6 +43,11 @@ class ProcessOrderAction:
             logging.error("Error while create send message to kafka {}".format(ex))
             raise
 
+def get_result(order_id):
+    if int(order_id) % 5 == 0:
+        return "notOk"
+    else:
+        return "Ok"
 
 def process_order_action(order_action_message):
     order_action = json.loads(json.loads(order_action_message))
@@ -49,7 +57,7 @@ def process_order_action(order_action_message):
     order_id = order_action["variablesAsMap"]["orderId"]
     res_topic_name = action_type_map[action_type]
 
-    res_message = {"orderId": order_id, "messageName": res_topic_name}
+    res_message = {"orderId": order_id, "messageName": res_topic_name, "result": get_result(order_id)}
     ProcessOrderAction(res_topic_name).send_message(res_message)
 
 
@@ -59,4 +67,5 @@ for _ in range(num_threads):
                                                    "OrderActionsConsumerService_13",
                                                    topic_name,
                                                    process_order_action).start).start()
+
 

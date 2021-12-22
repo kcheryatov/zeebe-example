@@ -1,1 +1,4 @@
 confluent_kafka
+zeebe-grpc
+grpcio
+zeebe-worker

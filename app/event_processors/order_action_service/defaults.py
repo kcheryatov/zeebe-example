@@ -10,6 +10,8 @@ os.environ.setdefault('ORDER_ACTION_TOPICS_MAPPINGS', '{"validation":"order_vali
                                                       '"calcellation":"order_cancelled"}')
 os.environ.setdefault('THREADS_COUNT', '4')
 
+os.environ.setdefault('ZEEBE_URL', '192.1.1.5:26500')
+
 logging.basicConfig(
     filename=os.getenv('LOGS_FILE'),
     filemode='a',
