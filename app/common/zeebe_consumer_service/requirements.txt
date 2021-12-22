@@ -1,3 +1,2 @@
-confluent_kafka
 zeebe-grpc
 grpcio

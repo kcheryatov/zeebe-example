@@ -10,5 +10,5 @@ curl -X POST -H "Content-Type: application/json" --data @"./app/process/connecto
 
 
 
-curl -X POST -H "Content-Type: application/json" --data @"./app/process/connector-configs/order_action_source.json" http://192.1.1.9:8083/connectors
-curl -X POST -H "Content-Type: application/json" --data @"./app/process/connector-configs/order_action_sink_order_action.json" http://192.1.1.9:8083/connectors
+curl -X POST -H "Content-Type: application/json" --data @"./app/process/connector-configs/order_action_source.json" http://192.1.1.11:8083/connectors
+curl -X POST -H "Content-Type: application/json" --data @"./app/process/connector-configs/order_action_sink_order_action.json" http://192.1.1.11:8083/connectors

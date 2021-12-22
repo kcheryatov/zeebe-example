@@ -1,4 +1,5 @@
 import json
+import time
 
 import grpc
 from zeebe_grpc import gateway_pb2, gateway_pb2_grpc
@@ -10,23 +11,10 @@ with grpc.insecure_channel("192.1.1.5:26500") as channel:
     topology = stub.Topology(gateway_pb2.TopologyRequest())
     print(topology)
 
-    # # deploy a process definition
-    # with open("test1.bpmn", "rb") as process_definition_file:
-    #     process_definition = process_definition_file.read()
-    #     process = gateway_pb2.ProcessRequestObject(
-    #         name="test1.bpmn",
-    #         definition=process_definition
-    #     )
-    # stub.DeployProcess(
-    #     gateway_pb2.DeployProcessRequest(
-    #         processes=[process]
-    #     )
-    # )
-
     # start a process instance
     for i in range(200):
         variables = {
-            "orderId": 5000+i
+            "orderId": 8000+i
         }
         res = stub.CreateProcessInstance(
             gateway_pb2.CreateProcessInstanceRequest(
@@ -36,4 +24,5 @@ with grpc.insecure_channel("192.1.1.5:26500") as channel:
             )
         )
         print(res)
+        time.sleep(0.01)
 

@@ -76,7 +76,6 @@ services:
       TZ: Europe/Moscow
       ORDER_ACTION_TOPICS_MAPPINGS: '{"validation":"order_validated","activation":"order_activated","completion":"order_completed","ext_validation":"order_validated","calcellation":"order_cancelled"}'
       THREADS_COUNT: 1
-      ZEEBE_URL: "zeebe:26500"
     restart: on-failure
     volumes:
       - ./app/event_processors/order_action_service/logs:/code/app/event_processors/order_action_service/logs
@@ -84,6 +83,24 @@ services:
       - app_net
     depends_on:
       - kafka
+
+  order_job_consumer_service:
+    build:
+      context: .
+      dockerfile: app/event_processors/order_job_service/dockerfile
+    container_name: order_job_consumer_service
+    environment:
+      LOGS_FILE: "./logs/order_job_consumer_service.log"
+      TZ: Europe/Moscow
+      THREADS_COUNT: 1
+      ZEEBE_URL: "zeebe:26500"
+    restart: on-failure
+    volumes:
+      - ./app/event_processors/order_job_service/logs:/code/app/event_processors/order_job_service/logs
+    networks:
+      - app_net
+    depends_on:
+      - zeebe
 
   zookeeper:
     container_name: common_zookeeper
