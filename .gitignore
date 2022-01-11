@@ -2,6 +2,7 @@
 app/api/logs/*.log
 app/event_processors/create_order_service/logs/*.log
 app/event_processors/order_action_service/logs/*.log
+app/event_processors/order_job_service/logs/*.log
 # elastic volume
 /app/data/elastic/*
 # zeebe volume

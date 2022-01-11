@@ -12,9 +12,9 @@ with grpc.insecure_channel("192.1.1.5:26500") as channel:
     print(topology)
 
     # start a process instance
-    for i in range(200):
+    for i in range(100):
         variables = {
-            "orderId": 8000+i
+            "orderId": 13000+i
         }
         res = stub.CreateProcessInstance(
             gateway_pb2.CreateProcessInstanceRequest(
